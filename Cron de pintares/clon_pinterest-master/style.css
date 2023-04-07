@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    /* ~ 1rem */
+}
+
+:root {
+    --card_width: 15.625rem;
+    /*~250px Anchura de la tarjeta/pin */
+    --row_increment: 0.625rem;
+    /*~10px Al estar usando CSS grid, cada tarjeta/pin estará hecha con incrementos de 10px para las filas */
+    --card_border_radius: 1rem;
+    /*~16px  Redondeo en los bordes de las tarjetas/pines*/
+    --card_small: 26;
+    /* Factor de crecimiento para tarjetas pequeñas: 26*0.625rem */
+    --card_medium: 33;
+    /* Factor de crecimiento para tarjetas medianas: 26*0.625rem */
+    --card_large: 45;
+    /* Factor de crecimiento para tarjetas grandes: 26*0.625rem */
+}
+
+#content {
+    height: 100%;
+    width: 100%;
+    background-color: blanchedalmond;
+}
+
+nav {
+    height: 5rem;
+    background-color: #fff;
+    display: flex;
+}
+
+.pinterest-icon{
+    width:50px;
+    padding: 10px;
+    cursor:pointer;
+    margin-top: 20px;
+    border-radius:60%;
+}
+
+.home{
+    color: #000;
+    margin-top: 25px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 3rem;
+}
+
+.today{
+    color: #000;
+    margin-left: 15px;
+    margin-top: 35px;
+    text-decoration: none;
+}
+
+.icon{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-top: 40px;
+    margin-left: 5px;
+    cursor:pointer;
+}
+
+.icon2{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    margin-top: 30px;
+    margin-left: 18px;
+    cursor:pointer; 
+}
+
+.icon3{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    margin-top: 30px;
+    margin-left: 15px;
+    cursor:pointer; 
+}
+
+.navbar_input_search_container {
+    flex-grow: 4;
+    min-width: 3rem;
+    background-color: #fff;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.navbar_input_search {
+    margin-inline: 0.8rem;
+    padding-inline-start: 0.8rem;
+    height: 3rem;
+    width: 100%;
+    background-color: #e9e9e9;
+    border-radius: 1.5rem;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.navbar_input_search>svg {
+    height: 1rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.navbar_input_search>input {
+    height: 2rem;
+    flex-grow: 3;
+    margin-inline-end: 1rem;
+    margin-inline-start: 0.8rem;
+    background-color: transparent;
+    border-style: none;
+}
+
+.navbar_input_search>input:focus-visible {
+    outline: none;
+}
+
+.navbar_user_buttons_container {
+    width: 13rem;
+    background-color: #fff;
+}
+
+.pin_container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card_width));
+    grid-auto-rows: var(--row_increment);
+    justify-content: center;
+    background-color: #fff;
+}
+
+.card {
+    position: relative;
+    padding: 0;
+    margin: 15px 10px;
+    border-radius: var(--card_border_radius);
+    background-color: red;
+}
+
+.card_image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #fff;
+    border-radius: var(--card_border_radius);
+}
+
+.card_buttons_on_hover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.493);
+    color: white;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: var(--card_border_radius);
+}
+
+
+.card_buttons_on_hover:hover {
+    opacity: 1;
+}
+
+.btn_guardar{
+    background-color: #da1010;
+    border-radius: 999px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    margin-left: 125px;
+    margin-top: 0.5rem;
+}
+
+.card_buttons_on_hover-footer{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding: 0.5rem;
+    border-radius: 50%;
+    margin-top: auto;
+}
+
+.btn_update{
+    min-height: 2rem;
+    min-width: 2rem;
+    background-color: #e9e9e9;
+    color: #000;
+    border: 0;
+    border-radius: 50%;
+    margin-inline-end: 0.5rem;
+}
+
+.btn_update:hover{
+    background: #fff;
+}
+
+.btn_dots{
+    min-height: 2rem;
+    min-width: 2rem;
+    background-color: #e9e9e9;
+    color: #000;
+    border: 0;
+    border-radius: 50%;
+}
+
+.card_small {
+    grid-row-end: span var(--card_small);
+    Border-radius: var(-- card_border_radius);
+}
+
+.card_medium {
+    grid-row-end: span var(--card_medium);
+    Border-radius: var(-- card_border_radius);
+}
+
+.card_large {
+    grid-row-end: span var(--card_large);
+    Border-radius: var(-- card_border_radius);
+}
+
+.image{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius:15px;
+}
